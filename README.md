@@ -3,6 +3,6 @@
 ## Getting started
 
 ```bash
-# Install dependencies
 pnpm install
+pnpm dev
 ```
