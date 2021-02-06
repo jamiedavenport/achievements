@@ -1,0 +1,3 @@
+setup:
+  project: achievements
+  config: dev
