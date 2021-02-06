@@ -2,13 +2,33 @@ import React from "react";
 import InputGroup from "./form/InputGroup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { AchievementDto, achievementSchema } from "lib/achievement";
+import {
+  Achievement,
+  AchievementDto,
+  achievementSchema,
+} from "lib/achievement";
+
+const createAchievement = async (values: AchievementDto) => {
+  const resp = await fetch(`/api/achievements`, {
+    method: "POST",
+    body: JSON.stringify(values),
+  });
+
+  if (!resp.ok) {
+    const error = await resp.text();
+    throw new Error(error);
+  }
+};
 
 const NewAchievementForm: React.FC = () => {
-  const { register, handleSubmit, errors } = useForm<AchievementDto>({
+  const { register, handleSubmit, errors, reset } = useForm<AchievementDto>({
     resolver: yupResolver(achievementSchema),
   });
-  const saveAchievement = console.log;
+
+  const onSubmit = async (values: AchievementDto) => {
+    await createAchievement(values);
+    reset();
+  };
 
   return (
     <div className="bg-white shadow sm:rounded-lg">
@@ -17,7 +37,7 @@ const NewAchievementForm: React.FC = () => {
           New achievement ✨
         </h3>
         <form
-          onSubmit={handleSubmit(saveAchievement)}
+          onSubmit={handleSubmit(onSubmit)}
           className="mt-5 space-y-5 md:space-y-0 md:space-x-5 md:flex md:items-end"
         >
           <InputGroup
