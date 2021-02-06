@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_error.js", "pages/api/test.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_error.js", "pages/api/test.ts", "pages/test.js"],
   "exclude": ["node_modules"]
 }
