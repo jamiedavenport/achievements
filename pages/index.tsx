@@ -8,7 +8,9 @@ const Home: React.FC = () => {
     return <span>Loading...</span>;
   }
 
-  if (session !== null) {
+  const isSignedIn = session.user !== undefined;
+
+  if (isSignedIn) {
     return <span>Hello, {session.user?.name}</span>;
   }
 
