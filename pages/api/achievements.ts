@@ -6,11 +6,7 @@ import { NextApiHandler } from "next";
 
 initSentry();
 
-const handler: NextApiHandler = async (req, res) => {
-  if (req.method !== "POST") {
-    return res.status(405).end(`${req.method} is not supported`);
-  }
-
+const post: NextApiHandler = async (req, res) => {
   const session = await nauth0.getSession({ req });
 
   if (session === null) {
@@ -32,6 +28,15 @@ const handler: NextApiHandler = async (req, res) => {
   });
 
   res.status(201).json(createdAchievement);
+};
+
+const handler: NextApiHandler = (req, res) => {
+  switch (req.method) {
+    case "POST":
+      return post(req, res);
+    default:
+      return res.status(405).end(`${req.method} is not supported`);
+  }
 };
 
 export default handler;
