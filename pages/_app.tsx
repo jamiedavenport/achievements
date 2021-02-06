@@ -10,10 +10,16 @@ import { SessionProps } from "lib/session";
 initSentry();
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
-  const props = deserialize<SessionProps>(pageProps);
+  console.log(pageProps);
+
+  let session;
+  try {
+    const props = deserialize<SessionProps>(pageProps);
+    session = props.session;
+  } catch {}
 
   return (
-    <SessionProvider value={props.session}>
+    <SessionProvider value={session}>
       <Component {...pageProps} />
     </SessionProvider>
   );
