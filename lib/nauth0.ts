@@ -7,7 +7,7 @@ export default nauth0({
   clientSecret: process.env.AUTH_CLIENT_SECRET,
   redirectUri: `${host}/api/auth/callback`,
   logoutRedirectUri: host,
-  postLoginRedirectUri: `${host}/profile`,
+  postLoginRedirectUri: host,
   scope: "openid profile",
   session: {
     cookieSecret: process.env.SECRET,
