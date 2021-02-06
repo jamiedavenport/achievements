@@ -1,18 +1,19 @@
 import NextErrorComponent from "next/error";
 import * as Sentry from "@sentry/node";
 
-const Error = ({ statusCode, hasGetInitialPropsRun, err }) => {
+const MyError = ({ statusCode, hasGetInitialPropsRun, err }) => {
   if (!hasGetInitialPropsRun && err) {
     // getInitialProps is not called in case of
     // https://github.com/vercel/next.js/issues/8592. As a workaround, we pass
     // err via _app.js so it can be captured
     Sentry.captureException(err);
+    // Flushing is not required in this case as it only happens on the client
   }
 
   return <NextErrorComponent statusCode={statusCode} />;
 };
 
-Error.getInitialProps = async ({ res, err, asPath }) => {
+MyError.getInitialProps = async ({ res, err, asPath }) => {
   const errorInitialProps = await NextErrorComponent.getInitialProps({
     res,
     err,
@@ -35,13 +36,13 @@ Error.getInitialProps = async ({ res, err, asPath }) => {
   //    Boundary. Read more about what types of exceptions are caught by Error
   //    Boundaries: https://reactjs.org/docs/error-boundaries.html
 
-  if (res?.statusCode === 404) {
-    // Opinionated: do not record an exception in Sentry for 404
-    return { statusCode: 404 };
-  }
   if (err) {
     Sentry.captureException(err);
+
+    // Flushing before returning is necessary if deploying to Vercel, see
+    // https://vercel.com/docs/platform/limits#streaming-responses
     await Sentry.flush(2000);
+
     return errorInitialProps;
   }
 
@@ -56,4 +57,4 @@ Error.getInitialProps = async ({ res, err, asPath }) => {
   return errorInitialProps;
 };
 
-export default Error;
+export default MyError;

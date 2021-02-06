@@ -1,7 +1,10 @@
 import { achievementSchema } from "lib/achievement";
 import { achievementRepo } from "lib/fauna/achievement";
 import nauth0 from "lib/nauth0";
+import { initSentry } from "lib/sentry";
 import { NextApiHandler } from "next";
+
+initSentry();
 
 const handler: NextApiHandler = async (req, res) => {
   if (req.method !== "POST") {
