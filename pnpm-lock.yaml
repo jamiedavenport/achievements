@@ -2,6 +2,8 @@ dependencies:
   '@hookform/resolvers': 1.3.0_react-hook-form@6.15.1
   '@tailwindcss/forms': 0.2.1
   autoprefixer: 10.2.4_postcss@8.2.4
+  date-fns: 2.17.0
+  faunadb: 4.0.3
   nauth0: 0.8.1-canary.0_fe345dc0126fd7ed75e8a80a8dbc2b9f
   next: 10.0.6_c39e9db791ea05e3ec4e0e74abb7a6b5
   postcss: 8.2.4
@@ -276,6 +278,10 @@ packages:
       node: '>=6.5'
     resolution:
       integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==
+  /abortcontroller-polyfill/1.7.1:
+    dev: false
+    resolution:
+      integrity: sha512-yml9NiDEH4M4p0G4AcPkg8AAa4mF3nfYF28VQxaokpO67j9H7gWgmsVWJ/f1Rn+PzsnDYvzJzWIQzCqDKRvWlA==
   /acorn-node/1.8.2:
     dependencies:
       acorn: 7.4.1
@@ -579,6 +585,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-vIyhWmIkULaq04Gt93txdh+j02yX/JzlyhLYbV3YQCn/zvES3JnY7TifHHvvr1w5hTDluNKMkV05cs4vy8Q7sw==
+  /btoa-lite/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-M3dm2hWAEhD92VbCLpxokaudAzc=
   /buffer-from/1.1.1:
     dev: false
     resolution:
@@ -955,6 +965,12 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==
+  /date-fns/2.17.0:
+    dev: false
+    engines:
+      node: '>=0.11'
+    resolution:
+      integrity: sha512-ZEhqxUtEZeGgg9eHNSOAJ8O9xqSgiJdrL0lzSSfMF54x6KXWJiOH/xntSJ9YomJPrYH/p08t6gWjGWq1SDJlSA==
   /debug/4.3.1:
     dependencies:
       ms: 2.1.2
@@ -1089,6 +1105,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-NKbgaM8ZJOecTZsIzW5gSuplsX2IWW2mIK7xVr8hTQF2v1CJWTmLZ1HOCh5sH+IzVPAGE5IucooOkvwBRAdowA==
+  /dotenv/8.2.0:
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
   /electron-to-chromium/1.3.657:
     dev: false
     resolution:
@@ -1203,6 +1225,19 @@ packages:
     optional: true
     resolution:
       integrity: sha512-XYfuKMvj4O35f/pOXLObndIRvyQ+/+6AhODh+OKWj9S9498pHHn/IMszH+gt0fBCRWMNfk1ZSp5x3AifmnI2vg==
+  /faunadb/4.0.3:
+    dependencies:
+      abortcontroller-polyfill: 1.7.1
+      base64-js: 1.5.1
+      btoa-lite: 1.0.0
+      cross-fetch: 3.0.6
+      dotenv: 8.2.0
+      fn-annotate: 1.2.0
+      object-assign: 4.1.1
+      util-deprecate: 1.0.2
+    dev: false
+    resolution:
+      integrity: sha512-pfXX3pwyQQfsx+wO4u8m16gQyDPJRbpjMGk5fCzq0tCT/3mPyCVlc5zTorSdBWWmLFuResP9idFrWdqo+q2IEA==
   /figures/3.2.0:
     dependencies:
       escape-string-regexp: 1.0.5
@@ -1254,6 +1289,12 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-wgpWy002tA+wgmO27buH/9KzyEOQnKsG/R0yrcjPT9BOFm0zRBVQbZ95nRGXWMywS8YR5knRbpohio0bcJABxQ==
+  /fn-annotate/1.2.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-KNoAARfephhC/mHzU/Qc9Mk6en4=
   /fraction.js/4.0.13:
     dev: false
     resolution:
@@ -3460,6 +3501,8 @@ specifiers:
   '@types/node': ^14.14.25
   '@types/react': ^17.0.1
   autoprefixer: ^10.2.4
+  date-fns: ^2.17.0
+  faunadb: ^4.0.3
   husky: ^4.3.8
   lint-staged: ^10.5.4
   nauth0: 0.8.1-canary.0

@@ -1,22 +1,12 @@
 import React from "react";
 import InputGroup from "./form/InputGroup";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
-type Inputs = {
-  when: string;
-  what: string;
-};
-
-const schema = yup.object().shape({
-  when: yup.date().required(),
-  what: yup.string().required(),
-});
+import { AchievementDto, achievementSchema } from "lib/achievement";
 
 const NewAchievementForm: React.FC = () => {
-  const { register, handleSubmit, errors } = useForm<Inputs>({
-    resolver: yupResolver(schema),
+  const { register, handleSubmit, errors } = useForm<AchievementDto>({
+    resolver: yupResolver(achievementSchema),
   });
   const saveAchievement = console.log;
 
