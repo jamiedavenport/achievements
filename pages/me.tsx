@@ -1,4 +1,5 @@
 import NewAchievementForm from "components/NewAchievementForm";
+import Share from "components/Share";
 import Timeline from "components/timeline/Timeline";
 import AppLayout from "layouts/AppLayout";
 import { Achievement } from "lib/achievement";
@@ -38,10 +39,9 @@ const Me: React.FC<Props> = ({ achievements }) => {
 
   return (
     <AppLayout title={title}>
-      <div className="mt-10">
+      <div className="mt-10 space-y-10">
         <NewAchievementForm onCreate={handleNewAchievement} />
-      </div>
-      <div className="mt-10">
+        <Share username={session.user.id} />
         <Timeline achievements={data} />
       </div>
     </AppLayout>
