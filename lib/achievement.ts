@@ -21,9 +21,9 @@ export type CreateAchievement = (
   achievement: Omit<Achievement, "id">
 ) => Promise<Achievement>;
 
-export type ListAchievements = (owner: string) => Promise<Achievement[]>;
+export type FetchAchievements = (owner: string) => Promise<Achievement[]>;
 
 export type AchievementRepo = {
   createAchievement: CreateAchievement;
-  listAchievements: ListAchievements;
+  fetchAchievements: FetchAchievements;
 };

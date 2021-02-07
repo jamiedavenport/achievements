@@ -15,6 +15,7 @@ dependencies:
   react-dom: 17.0.1_react@17.0.1
   react-hook-form: 6.15.1_react@17.0.1
   superjson: 1.6.1
+  swr: 0.4.1_react@17.0.1
   tailwindcss: 2.0.2_90874d0ac9c8f3b30e7bed02cb9a0d41
   yup: 0.32.8
 devDependencies:
@@ -2173,6 +2174,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
+  /dequal/2.0.2:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==
   /des.js/1.0.1:
     dependencies:
       inherits: 2.0.4
@@ -6088,6 +6095,15 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-zoE5/e+dnEijk6ASB6/qrK+oYdm2do1hjoLWrqUC/8WEIW1gbxFcKuBof7sW8ArN6e+AYvsE8HBGiVRWL/F5CA==
+  /swr/0.4.1_react@17.0.1:
+    dependencies:
+      dequal: 2.0.2
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0
+    resolution:
+      integrity: sha512-/jQWPjCwy7rNbEJKpuObfbtJHtneTKhlzjy8VkuAEGg/kkYhZoKWVdGtIXrz9vuTGdy/grLVWpA6DfiNk9ECWg==
   /symbol-tree/3.2.4:
     dev: true
     resolution:
@@ -6780,6 +6796,7 @@ specifiers:
   react-dom: 17.0.1
   react-hook-form: ^6.15.1
   superjson: 1.6.1
+  swr: ^0.4.1
   tailwindcss: ^2.0.2
   ts-jest: ^26.5.0
   typescript: ^4.1.3

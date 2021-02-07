@@ -30,10 +30,26 @@ const post: NextApiHandler = async (req, res) => {
   res.status(201).json(createdAchievement);
 };
 
+const get: NextApiHandler = async (req, res) => {
+  const session = await nauth0.getSession({ req });
+
+  if (session === null) {
+    return res.status(401).end("Unauthorized");
+  }
+
+  const achievements = await achievementRepo.fetchAchievements(
+    session.user?.id
+  );
+
+  return res.status(200).json(achievements);
+};
+
 const handler: NextApiHandler = (req, res) => {
   switch (req.method) {
     case "POST":
       return post(req, res);
+    case "GET":
+      return get(req, res);
     default:
       return res.status(405).end(`${req.method} is not supported`);
   }

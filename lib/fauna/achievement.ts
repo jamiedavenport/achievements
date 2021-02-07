@@ -2,7 +2,7 @@ import {
   Achievement,
   AchievementRepo,
   CreateAchievement,
-  ListAchievements,
+  FetchAchievements,
 } from "lib/achievement";
 import fauna, { query } from "faunadb";
 import { faunaSecret } from "lib/config";
@@ -39,7 +39,7 @@ const createAchievement: CreateAchievement = async (achievement) => {
   };
 };
 
-const listAchievements: ListAchievements = async (owner: string) => {
+const fetchAchievements: FetchAchievements = async (owner: string) => {
   const resp = await client.query<any>(
     q.Map(
       q.Paginate(q.Match(q.Index("byOwner"), owner)),
@@ -52,5 +52,5 @@ const listAchievements: ListAchievements = async (owner: string) => {
 
 export const achievementRepo: AchievementRepo = {
   createAchievement,
-  listAchievements,
+  fetchAchievements,
 };

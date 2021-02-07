@@ -7,26 +7,26 @@ import {
   AchievementDto,
   achievementSchema,
 } from "lib/achievement";
+import { createAchievement } from "lib/api/achievement";
 
-const createAchievement = async (values: AchievementDto) => {
-  const resp = await fetch(`/api/achievements`, {
-    method: "POST",
-    body: JSON.stringify(values),
-  });
-
-  if (!resp.ok) {
-    const error = await resp.text();
-    throw new Error(error);
-  }
+type Props = {
+  onCreate: (achievement: Achievement) => void;
 };
 
-const NewAchievementForm: React.FC = () => {
-  const { register, handleSubmit, errors, reset } = useForm<AchievementDto>({
+const NewAchievementForm: React.FC<Props> = ({ onCreate }) => {
+  const {
+    register,
+    handleSubmit,
+    errors,
+    reset,
+    formState,
+  } = useForm<AchievementDto>({
     resolver: yupResolver(achievementSchema),
   });
 
   const onSubmit = async (values: AchievementDto) => {
-    await createAchievement(values);
+    const created = await createAchievement(values);
+    onCreate(created);
     reset();
   };
 
@@ -61,6 +61,7 @@ const NewAchievementForm: React.FC = () => {
           <button
             type="submit"
             className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto sm:text-sm"
+            disabled={formState.isSubmitting}
           >
             Save
           </button>
