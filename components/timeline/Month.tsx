@@ -4,34 +4,14 @@ import AchievementList from "./AchievementList";
 
 type Props = {
   label: string;
+  achievements: Achievement[];
 };
 
-const mockAchievements: Achievement[] = [
-  {
-    id: "1",
-    owner: "me",
-    what: "Built and achievement tracker",
-    when: new Date(),
-  },
-  {
-    id: "2",
-    owner: "me",
-    what: "Built and achievement tracker",
-    when: new Date(),
-  },
-  {
-    id: "3",
-    owner: "me",
-    what: "Built and achievement tracker",
-    when: new Date(),
-  },
-];
-
-const Month: React.FC<Props> = ({ label }) => {
+const Month: React.FC<Props> = ({ label, achievements }) => {
   return (
     <div>
       <h2 className="text-3xl font-bold mb-2">{label}</h2>
-      <AchievementList achievements={mockAchievements} />
+      <AchievementList achievements={achievements} />
     </div>
   );
 };

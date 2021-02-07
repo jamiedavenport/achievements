@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filterAchievements should put events into month buckets 1`] = `
+Object {
+  "0": Array [
+    Object {
+      "id": "1",
+      "owner": "me",
+      "what": "Something in Jan",
+      "when": 2021-01-01T00:00:00.000Z,
+    },
+    Object {
+      "id": "4",
+      "owner": "me",
+      "what": "Something else in Jan",
+      "when": 2021-01-31T00:00:00.000Z,
+    },
+  ],
+  "1": Array [
+    Object {
+      "id": "2",
+      "owner": "me",
+      "what": "Something in Feb",
+      "when": 2021-02-01T00:00:00.000Z,
+    },
+  ],
+  "10": Array [],
+  "11": Array [
+    Object {
+      "id": "3",
+      "owner": "me",
+      "what": "Something in Dec",
+      "when": 2021-12-01T00:00:00.000Z,
+    },
+  ],
+  "2": Array [
+    Object {
+      "id": "5",
+      "owner": "me",
+      "what": "Birthday!",
+      "when": 2021-03-30T23:00:00.000Z,
+    },
+  ],
+  "3": Array [
+    Object {
+      "id": "6",
+      "owner": "me",
+      "what": "April fools",
+      "when": 2021-03-31T23:00:00.000Z,
+    },
+  ],
+  "4": Array [],
+  "5": Array [],
+  "6": Array [],
+  "7": Array [],
+  "8": Array [],
+  "9": Array [],
+}
+`;
