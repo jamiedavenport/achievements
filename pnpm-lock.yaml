@@ -7,6 +7,7 @@ dependencies:
   '@tailwindcss/forms': 0.2.1
   autoprefixer: 10.2.4_postcss@8.2.4
   date-fns: 2.17.0
+  fathom-client: 3.0.0
   faunadb: 4.0.3
   nauth0: 0.8.1-canary.0_fe345dc0126fd7ed75e8a80a8dbc2b9f
   next: 10.0.6_c39e9db791ea05e3ec4e0e74abb7a6b5
@@ -2543,6 +2544,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
+  /fathom-client/3.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-d0oH2SHWCMIVLbbegB7nBIjSvbqbHrZBZxIOWSVAxlJL/roL0Ah9NNb6rTIcKMlA4gov9AjWQGEcZRzlnGc3XQ==
   /faunadb/4.0.3:
     dependencies:
       abortcontroller-polyfill: 1.7.1
@@ -6784,6 +6789,7 @@ specifiers:
   autoprefixer: ^10.2.4
   babel-plugin-superjson-next: 0.2.1
   date-fns: ^2.17.0
+  fathom-client: 3.0.0
   faunadb: ^4.0.3
   husky: ^4.3.8
   jest: ^26.6.3

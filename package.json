@@ -28,7 +28,8 @@
     "superjson": "1.6.1",
     "swr": "^0.4.1",
     "tailwindcss": "^2.0.2",
-    "yup": "^0.32.8"
+    "yup": "^0.32.8",
+    "fathom-client": "3.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.13",
