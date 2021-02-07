@@ -26,7 +26,7 @@ const Me: React.FC<Props> = ({ achievements }) => {
   };
 
   const name = session.user?.givenName ?? session.user?.name;
-  const title = `${name ? `${name}'s` : "My"} achievements`;
+  const title = `${name ? `${name}'s` : "My"} 2021`;
 
   if (error) {
     return <span>Something went wrong...</span>;
