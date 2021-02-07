@@ -38,7 +38,7 @@ Object {
       "id": "5",
       "owner": "me",
       "what": "Birthday!",
-      "when": 2021-03-30T23:00:00.000Z,
+      "when": 2021-03-31T00:00:00.000Z,
     },
   ],
   "3": Array [
@@ -46,7 +46,7 @@ Object {
       "id": "6",
       "owner": "me",
       "what": "April fools",
-      "when": 2021-03-31T23:00:00.000Z,
+      "when": 2021-04-01T00:00:00.000Z,
     },
   ],
   "4": Array [],
