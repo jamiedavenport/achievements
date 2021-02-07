@@ -1,5 +1,6 @@
 import * as Sentry from "@sentry/node";
 import { RewriteFrames } from "@sentry/integrations";
+import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 
 export const initSentry = () => {
   if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
@@ -32,4 +33,17 @@ export const initSentry = () => {
       release: process.env.NEXT_PUBLIC_COMMIT_SHA,
     });
   }
+};
+
+export const withSentry = (apiHandler: NextApiHandler) => {
+  return async (req: NextApiRequest, res: NextApiResponse) => {
+    try {
+      return await apiHandler(req, res);
+    } catch (error) {
+      console.error(error);
+      Sentry.captureException(error);
+      await Sentry.flush(2000);
+      return error;
+    }
+  };
 };
